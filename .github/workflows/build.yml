@@ -32,12 +32,6 @@ jobs:
           preset: ${{ matrix.platform }}
           debugMode: "false"
 
-      - name: Show build files
-        run: |
-          echo "Base" && ls -l
-          echo "cd" && cd build
-          echo "build" && ls -l
-
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
