@@ -34,9 +34,11 @@ jobs:
 
       - name: Show build files
         run: |
-          ls -l
-          cd build
-          ls -l
+          echo "Base" && ls -l
+          echo "cd" && cd build
+          echo "build" && ls -l
+          echo "cd sub" && cd untitled-plant-game
+          echp "build/untitled-plant-game" && ls -l
 
       - name: Release
         uses: softprops/action-gh-release@v2
