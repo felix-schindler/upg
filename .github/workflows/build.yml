@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        platform: [linux, windows]
+        platform: [linux, windows, mac]
 
     steps:
       - uses: actions/checkout@v4
@@ -25,9 +25,10 @@ jobs:
 
       - name: Build
         id: build
-        uses: felix-schindler/build-godot-action@v1.6.1
+        uses: felix-schindler/build-godot-action@v2.0.0
         if: github.event.pull_request.draft == false
         with:
+          name: untitled-plant-game
           preset: ${{ matrix.platform }}
           debugMode: "false"
 
@@ -36,8 +37,6 @@ jobs:
           echo "Base" && ls -l
           echo "cd" && cd build
           echo "build" && ls -l
-          echo "cd sub" && cd untitled-plant-game
-          echp "build/untitled-plant-game" && ls -l
 
       - name: Release
         uses: softprops/action-gh-release@v2
