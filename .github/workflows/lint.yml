@@ -25,5 +25,5 @@ jobs:
         with:
           dotnet-version: '8.x'
       - run: |
-          dotnet tools restore
+          dotnet tool restore
           dotnet csharpier . --check
